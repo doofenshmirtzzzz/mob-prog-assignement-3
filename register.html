@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Registration Page</title>
+  <style>
+    body { font-family: Arial, sans-serif; display: flex; justify-content: center; align-items: center; height: 100vh; margin: 0; background-color: #f4f4f4; }
+    .container { text-align: center; max-width: 300px; width: 100%; padding: 20px; border: 1px solid #ddd; border-radius: 8px; background-color: #fff; box-shadow: 0 4px 8px rgba(0,0,0,0.1); }
+    input[type="text"], input[type="password"], input[type="email"] { width: 100%; padding: 10px 35px 10px 10px; margin: 8px 0; border: 1px solid #ddd; border-radius: 4px; box-sizing: border-box; }
+    button { padding: 10px; width: 100%; background-color: #0026ff; color: white; border: none; border-radius: 4px; cursor: pointer; font-size: 16px; }
+    button:hover { background-color: #0056b3; }
+    
+    /* Show password field styling */
+    .show-password { position: relative; width: 100%; }
+    .toggle-password {
+      position: absolute;
+      right: 10px;
+      top: 50%;
+      transform: translateY(-50%);
+      cursor: pointer;
+      color: #888;
+      font-size: 18px;
+    }
+    .toggle-password:hover { color: #333; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>Register</h2>
+    
+    <!-- Username Field -->
+    <input type="text" placeholder="Username" />
+    
+    <!-- Email Field -->
+    <input type="email" placeholder="Email" />
+    
+    <!-- Password Field with Show/Hide Option -->
+    <div class="show-password">
+      <input type="password" id="password" placeholder="Password" />
+      <span class="toggle-password" onclick="togglePasswordVisibility('password', this)">👁</span>
+    </div>
+
+    <!-- Confirm Password Field with Show/Hide Option -->
+    <div class="show-password">
+      <input type="password" id="confirm-password" placeholder="Confirm Password" />
+      <span class="toggle-password" onclick="togglePasswordVisibility('confirm-password', this)">👁</span>
+    </div>
+    
+    <!-- Register Button -->
+    <button onclick="alert('Register button clicked')">Register</button>
+  </div>
+
+  <script>
+    // Toggle Show/Hide Password for multiple fields
+    function togglePasswordVisibility(fieldId, toggleIcon) {
+      const passwordInput = document.getElementById(fieldId);
+      
+      if (passwordInput.type === "password") {
+        passwordInput.type = "text";
+        toggleIcon.textContent = "🙈";  // Change icon to hide mode
+      } else {
+        passwordInput.type = "password";
+        toggleIcon.textContent = "👁";  // Change icon to show mode
+      }
+    }
+  </script>
+</body>
+</html>
